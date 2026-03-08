@@ -243,17 +243,20 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 </div>
 
 <script>
-
 function abrir(){
 
-document.getElementById("sobre").classList.add("open");
-document.getElementById("music").play();
+document.getElementById("sobre").classList.add("open")
 
-mostrarFrases();
+document.getElementById("abrirBtn").style.display="none"
 
-setInterval(fuegosFinal,3000);
+document.getElementById("music").play()
+
+mostrarFrases()
+
+setInterval(fuegos,2500)
 
 }
+
 
 /* FRASES */
 
@@ -349,19 +352,7 @@ setTimeout(()=>h.remove(),6000);
 }
 
 setInterval(heart,1200);
-function abrir(){
 
-document.getElementById("sobre").classList.add("open")
-
-document.getElementById("abrirBtn").style.display="none"
-
-document.getElementById("music").play()
-
-mostrarFrases()
-
-setInterval(fuegos,2500)
-
-}
 /* LUCIERNAGAS */
 
 function firefly(){
