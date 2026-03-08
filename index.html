@@ -14,15 +14,18 @@ font-family:'Segoe UI',sans-serif;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ff6a88,#ff99ac,#ff4d6d);
+
+/* fondo oscuro elegante */
+background:linear-gradient(135deg,#1f1c2c,#3a2a4f,#5f2c82);
 perspective:1200px;
+color:#333;
 }
 
-/* CARTA */
+/* SOBRE */
 
 .carta{
-width:340px;
-height:230px;
+width:420px;
+height:280px;
 position:relative;
 transform-style:preserve-3d;
 transition:1s;
@@ -39,34 +42,38 @@ transition:1s;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:32px;
+font-size:40px;
 color:white;
-border-radius:12px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
 }
 
 .carta.abierta .tapa{
 transform:rotateX(-160deg);
 }
 
-/* MENSAJE */
+/* MENSAJE DENTRO DEL SOBRE */
 
 .mensaje{
 position:absolute;
 background:white;
-color:#444;
 width:100%;
 height:100%;
-padding:20px;
+padding:25px;
 box-sizing:border-box;
-border-radius:12px;
+border-radius:14px;
 text-align:center;
+overflow:hidden;
 }
+
+/* FRASES */
 
 .frase{
 opacity:0;
 transform:translateY(20px);
 transition:1s;
 margin:10px 0;
+font-size:18px;
 }
 
 .frase.visible{
@@ -79,7 +86,7 @@ transform:translateY(0);
 .petalo{
 position:absolute;
 top:-50px;
-font-size:22px;
+font-size:26px;
 animation:caer linear infinite;
 }
 
@@ -136,9 +143,9 @@ opacity:0;
 
 <p class="frase">Tu valentía para cambiar el mundo.</p>
 
-<p class="frase">Y la belleza única que hay en ti.</p>
+<p class="frase">Tu belleza única e incomparable.</p>
 
-<p class="frase">✨ Gracias por existir ✨</p>
+<p class="frase">✨ Gracias por hacer el mundo mejor ✨</p>
 
 </div>
 
@@ -160,7 +167,7 @@ document.getElementById("musica").play();
 
 mostrarFrases();
 
-setTimeout(fuegosArtificiales,4000);
+setTimeout(fuegosArtificiales,4500);
 
 }
 
