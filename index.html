@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Día de la Mujer</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+font-family:'Segoe UI',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff6a88,#ff99ac,#ff4d6d);
+perspective:1200px;
+}
+
+/* CARTA */
+
+.carta{
+width:340px;
+height:230px;
+position:relative;
+transform-style:preserve-3d;
+transition:1s;
+cursor:pointer;
+}
+
+.tapa{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff4d6d;
+transform-origin:top;
+transition:1s;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+color:white;
+border-radius:12px;
+}
+
+.carta.abierta .tapa{
+transform:rotateX(-160deg);
+}
+
+/* MENSAJE */
+
+.mensaje{
+position:absolute;
+background:white;
+color:#444;
+width:100%;
+height:100%;
+padding:20px;
+box-sizing:border-box;
+border-radius:12px;
+text-align:center;
+}
+
+.frase{
+opacity:0;
+transform:translateY(20px);
+transition:1s;
+margin:10px 0;
+}
+
+.frase.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* PETALOS */
+
+.petalo{
+position:absolute;
+top:-50px;
+font-size:22px;
+animation:caer linear infinite;
+}
+
+@keyframes caer{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0.7;
+}
+}
+
+/* FUEGOS */
+
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+border-radius:50%;
+animation:explode 1s forwards;
+}
+
+@keyframes explode{
+0%{
+transform:scale(0);
+opacity:1;
+}
+100%{
+transform:scale(16);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="carta" onclick="abrirCarta()">
+
+<div class="tapa">
+💌
+</div>
+
+<div class="mensaje">
+
+<h2 class="frase">🌸 Feliz Día de la Mujer 🌸</h2>
+
+<p class="frase">Hoy celebramos tu fuerza.</p>
+
+<p class="frase">Tu inteligencia que inspira.</p>
+
+<p class="frase">Tu valentía para cambiar el mundo.</p>
+
+<p class="frase">Y la belleza única que hay en ti.</p>
+
+<p class="frase">✨ Gracias por existir ✨</p>
+
+</div>
+
+</div>
+
+<audio id="musica" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_6d5c9e7db5.mp3">
+</audio>
+
+<script>
+
+/* ABRIR CARTA */
+
+function abrirCarta(){
+
+document.querySelector(".carta").classList.add("abierta");
+
+document.getElementById("musica").play();
+
+mostrarFrases();
+
+setTimeout(fuegosArtificiales,4000);
+
+}
+
+/* FRASES UNA A UNA */
+
+function mostrarFrases(){
+
+let frases=document.querySelectorAll(".frase");
+
+frases.forEach((frase,i)=>{
+setTimeout(()=>{
+frase.classList.add("visible");
+},1000*i);
+});
+
+}
+
+/* PETALOS */
+
+function crearPetalo(){
+
+let petalo=document.createElement("div");
+petalo.className="petalo";
+petalo.innerHTML="🌸";
+
+petalo.style.left=Math.random()*100+"vw";
+petalo.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(petalo);
+
+setTimeout(()=>{petalo.remove();},9000);
+
+}
+
+setInterval(crearPetalo,400);
+
+/* FUEGOS */
+
+function fuegosArtificiales(){
+
+for(let i=0;i<25;i++){
+
+let fire=document.createElement("div");
+
+fire.className="firework";
+
+fire.style.left=Math.random()*100+"vw";
+fire.style.top=Math.random()*60+"vh";
+
+fire.style.background="hsl("+Math.random()*360+"deg,100%,60%)";
+
+document.body.appendChild(fire);
+
+setTimeout(()=>{fire.remove();},1000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
