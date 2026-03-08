@@ -209,7 +209,7 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 </head>
 
 <body>
-<audio autoplay loop>
+<audio id="music" loop>
 <source src="tu-cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -256,7 +256,14 @@ mostrarFrases()
 setInterval(fuegos,2500)
 
 }
+function abrir(){
 
+document.getElementById("sobre").classList.add("open")
+
+let musica = document.getElementById("music")
+musica.play()
+
+}
 
 /* FRASES */
 
