@@ -187,7 +187,24 @@ width:4px;
 height:4px;
 border-radius:50%;
 }
+#abrirBtn{
+position:absolute;
+bottom:40px;
+padding:14px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff4d6d,#ff758f);
+color:white;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,.4);
+transition:transform .3s, box-shadow .3s;
+}
 
+#abrirBtn:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(0,0,0,.6);
+}
 </style>
 </head>
 
@@ -218,7 +235,7 @@ border-radius:50%;
 <p class="frase">🌹 Gracias por existir 🌹</p>
 
 </div>
-
+<button id="abrirBtn" onclick="abrir()">Abrir carta 💌</button>
 </div>
 
 <div class="floor" id="floor"></div>
@@ -332,7 +349,19 @@ setTimeout(()=>h.remove(),6000);
 }
 
 setInterval(heart,1200);
+function abrir(){
 
+document.getElementById("sobre").classList.add("open")
+
+document.getElementById("abrirBtn").style.display="none"
+
+document.getElementById("music").play()
+
+mostrarFrases()
+
+setInterval(fuegos,2500)
+
+}
 /* LUCIERNAGAS */
 
 function firefly(){
