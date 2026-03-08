@@ -210,8 +210,8 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 
 <body>
 
-<audio id="music" loop>
-<source src="tu-cancion.mp3" type="audio/mpeg">
+<audio id="music" autoplay loop muted>
+<source src="tu-cancion.mp3">
 </audio>
 
 <div class="scene">
@@ -243,7 +243,9 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 
 <script>
 window.onload = function(){
-document.getElementById("music").play();
+let m=document.getElementById("music")
+m.muted=false
+m.play()
 }
   
 function abrir(){
