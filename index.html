@@ -242,14 +242,15 @@ box-shadow:0 10px 25px rgba(0,0,0,.6);
 </div>
 
 <script>
-  
+  window.onload = function(){
+document.getElementById("music").play();
+}
 function abrir(){
 
 document.getElementById("sobre").classList.add("open")
 
 document.getElementById("abrirBtn").style.display="none"
 
-document.getElementById("music").play()
 
 mostrarFrases()
 
